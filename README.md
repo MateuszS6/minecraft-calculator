@@ -1,2 +1,3 @@
-# minecraft-nether-calculator
+# Minecraft Calculator
  
+Work in progress...
