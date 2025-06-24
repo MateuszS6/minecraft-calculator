@@ -1,33 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior: smooth">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Minecraft Calculator</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="">
-            <h1>Minecraft Calculator</h1>
-            <p>The best toolset for various needs when traversing the lands of Minecraft.</p>
-            <div class="container">
-                <h2>Nether Portals</h2>
-                <p>Convert Overworld coordinates to Nether coordinates to find the optimal position for portal placement.</p>
-                <form>
-                    <fieldset></fieldset>
-                </form>
-
-                <h2>Optimal Path</h2>
-                <p>Calculate the displacement, distance, and optimal building path with directions, from your main portal to another.</p>
-                <form>
-                    <fieldset></fieldset>
-                </form>
-            </div>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Minecraft Calculator</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="mc-calculator">
+    <h1>Minecraft Calculator</h1>
+    <p>The best tool for various calculations needed when traversing the lands of Minecraft.</p>
+    <div>
+        <h2>Nether Portals</h2>
+        <p>Convert dimension coordinates to find the best placement to link portals.</p>
+        <div class="convert-coordinates">
+            <fieldset class="coordinates">
+                <h3>Overworld</h3>
+                <div class="coordinate-pair">
+                    <label for="overworld-x">X:</label>
+                    <input id="overworld-x" name="overworld-x" required type="number">
+                </div>
+                <div class="coordinate-pair">
+                    <label for="overworld-y">Y:</label>
+                    <input id="overworld-y" name="overworld-y" required type="number">
+                </div>
+                <div class="coordinate-pair">
+                    <label for="overworld-z">Z:</label>
+                    <input id="overworld-z" name="overworld-z" required type="number">
+                </div>
+            </fieldset>
+            <fieldset class="coordinates">
+                <h3>Nether</h3>
+                <div class="coordinate-pair">
+                    <label for="nether-x">X:</label>
+                    <input id="nether-x" name="nether-x" readonly type="number">
+                </div>
+                <div class="coordinate-pair">
+                    <label for="nether-y">Y:</label>
+                    <input id="nether-y" name="nether-y" readonly type="number">
+                </div>
+                <div class="coordinate-pair">
+                    <label for="nether-z">Z:</label>
+                    <input id="nether-z" name="nether-z" readonly type="number">
+                </div>
+            </fieldset>
+            <button type="submit">Reverse</button>
         </div>
-        <footer>
-            <div>© 2025 Mateusz Stępień</div>
-            <div><b><a href="https://github.com/MateuszS6" target="_blank">GitHub</a></b></div>
-            <div><b><a href="https://www.linkedin.com/in/matz-stepien" target="_blank">LinkedIn</a></b></div>
-        </footer>
-    </body>
+
+        <h2>Optimal Path</h2>
+        <p>Calculate the displacement, distance, and optimal building path with directions, from your main portal to
+            another.</p>
+        <form>
+            <fieldset></fieldset>
+        </form>
+    </div>
+</div>
+<footer>
+    <div>© 2025 Mateusz Stępień</div>
+    <div><a href="https://github.com/MateuszS6" target="_blank">GitHub</a></div>
+    <div><a href="https://www.linkedin.com/in/matz-stepien" target="_blank">LinkedIn</a></div>
+</footer>
+</body>
 </html>
