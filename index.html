@@ -15,27 +15,19 @@
         <p>Convert dimension coordinates to find the best placement to link portals.</p>
         <div class="convert-coordinates">
             <div class="coordinates">
-                <h3>Overworld</h3>
-                <div class="coordinate-pair">
-                    <label for="x-input">X</label>
-                    <input id="x-input" name="x-input" required type="number">
-                </div>
-                <div class="coordinate-pair">
-                    <label for="y-input">Y</label>
-                    <input id="y-input" name="y-input" required type="number" min="-62" max="316">
-                </div>
-                <div class="coordinate-pair">
-                    <label for="z-input">Z</label>
-                    <input id="z-input" name="z-input" required type="number">
-                </div>
+                <h3 id="input-dimension">Overworld Coords</h3>
+                <label for="x-input">X: <input id="x-input" required type="number"></label>
+                <label for="y-input">Y: <input id="y-input" required type="number"></label>
+                <label for="z-input">Z: <input id="z-input" required type="number"></label>
+                <button id="reverse-button">Switch to Nether → Overworld</button>
+                <button id="clear-button">Clear</button>
             </div>
             <div class="coordinates">
-                <h3>Nether</h3>
+                <h3 id="output-dimension">Nether Coords</h3>
                 <p id="result">~ ~ ~</p>
+                <button id="copy-button">Copy</button>
             </div>
         </div>
-        <button type="submit">Reverse</button>
-        <button type="submit">Clear</button>
 
         <h2>Optimal Path</h2>
         <p>Calculate the displacement, distance, and optimal building path with directions, from your main portal to
