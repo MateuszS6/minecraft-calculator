@@ -14,45 +14,32 @@
         <h2>Nether Portals</h2>
         <p>Convert dimension coordinates to find the best placement to link portals.</p>
         <div class="convert-coordinates">
-            <fieldset class="coordinates">
+            <div class="coordinates">
                 <h3>Overworld</h3>
                 <div class="coordinate-pair">
-                    <label for="overworld-x">X:</label>
+                    <label for="overworld-x">X</label>
                     <input id="overworld-x" name="overworld-x" required type="number">
                 </div>
                 <div class="coordinate-pair">
-                    <label for="overworld-y">Y:</label>
+                    <label for="overworld-y">Y</label>
                     <input id="overworld-y" name="overworld-y" required type="number">
                 </div>
                 <div class="coordinate-pair">
-                    <label for="overworld-z">Z:</label>
+                    <label for="overworld-z">Z</label>
                     <input id="overworld-z" name="overworld-z" required type="number">
                 </div>
-            </fieldset>
-            <fieldset class="coordinates">
+            </div>
+            <div class="coordinates">
                 <h3>Nether</h3>
-                <div class="coordinate-pair">
-                    <label for="nether-x">X:</label>
-                    <input id="nether-x" name="nether-x" readonly type="number">
-                </div>
-                <div class="coordinate-pair">
-                    <label for="nether-y">Y:</label>
-                    <input id="nether-y" name="nether-y" readonly type="number">
-                </div>
-                <div class="coordinate-pair">
-                    <label for="nether-z">Z:</label>
-                    <input id="nether-z" name="nether-z" readonly type="number">
-                </div>
-            </fieldset>
-            <button type="submit">Reverse</button>
+                <p id="result">~ ~ ~</p>
+            </div>
         </div>
+        <button type="submit">Reverse</button>
+        <button type="submit">Clear</button>
 
         <h2>Optimal Path</h2>
         <p>Calculate the displacement, distance, and optimal building path with directions, from your main portal to
             another.</p>
-        <form>
-            <fieldset></fieldset>
-        </form>
     </div>
 </div>
 <footer>
@@ -60,5 +47,6 @@
     <div><a href="https://github.com/MateuszS6" target="_blank">GitHub</a></div>
     <div><a href="https://www.linkedin.com/in/matz-stepien" target="_blank">LinkedIn</a></div>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
