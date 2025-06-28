@@ -1,6 +1,6 @@
-const xInput = document.getElementById('overworld-x');
-const yInput = document.getElementById('overworld-y');
-const zInput = document.getElementById('overworld-z');
+const xInput = document.getElementById('x-input');
+const yInput = document.getElementById('y-input');
+const zInput = document.getElementById('z-input');
 const result = document.getElementById('result');
 
 [xInput, yInput, zInput].forEach(input => {
@@ -14,7 +14,7 @@ function updateResult() {
 
     // Convert to Nether
     const netherX = isNaN(x) ? '~' : Math.floor(x / 8);
-    const netherY = isNaN(y) ? '~' : y;
+    const netherY = isNaN(y) ? '~' : Math.max(2, Math.min(y, 122));
     const netherZ = isNaN(z) ? '~' : Math.floor(z / 8);
 
     // Update result
