@@ -1,11 +1,16 @@
+const overYMin = -62;
+const overYMax = 316;
+const netherYMin = 2;
+const netherYMax = 123;
+
 const xInput = document.getElementById('x-input');
 const yInput = document.getElementById('y-input');
 const zInput = document.getElementById('z-input');
 const result = document.getElementById('result');
 
 const reverseButton = document.getElementById('reverse-button');
-const inputDimension = document.getElementById('input-dimension');
-const outputDimension = document.getElementById('output-dimension');
+const inputDimensionName = document.getElementById('input-dimension');
+const outputDimensionName = document.getElementById('output-dimension');
 
 let isReversed = false;
 
@@ -14,31 +19,32 @@ let isReversed = false;
 });
 
 reverseButton.addEventListener('click', () => {
-    isReversed = !isReversed;
+    isReversed = !isReversed
 
     // Update UI
-    inputDimension.innerText = isReversed
-        ? 'Nether Coords'
-        : 'Overworld Coords';
+    inputDimensionName.innerText = isReversed ? 'Nether Coords' : 'Overworld Coords';
+    outputDimensionName.innerText = isReversed ? 'Overworld Coords' : 'Nether Coords';
+    reverseButton.innerText = isReversed ? 'Switch to Overworld → Nether' : 'Switch to Nether → Overworld';
 
-    outputDimension.innerText = isReversed
-        ? 'Overworld Coords'
-        : 'Nether Coords';
-
-    reverseButton.innerText = isReversed
-        ? 'Switch to Overworld → Nether'
-        : 'Switch to Nether → Overworld';
-
-    if (!isReversed) {
-        yInput.min = -62;
-        yInput.max = 316;
-    } else {
-        yInput.min = 2;
-        yInput.max = 123;
-    }
-
+    updateYInputRange();
     updateResult();
-})
+});
+
+updateYInputRange();
+
+function updateYInputRange() {
+    if (!isReversed) {
+        yInput.min = overYMin;
+        yInput.max = overYMax;
+    } else {
+        yInput.min = netherYMin;
+        yInput.max = netherYMax;
+    }
+}
+
+function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+}
 
 function updateResult() {
     const x = parseInt(xInput.value);
@@ -48,13 +54,13 @@ function updateResult() {
     if (!isReversed) {
         // Overworld → Nether
         const netherX = isNaN(x) ? '~' : Math.floor(x / 8);
-        const netherY = isNaN(y) ? '~' : Math.min(123, Math.max(2, y));
+        const netherY = isNaN(y) ? '~' : clamp(y, netherYMin, netherYMax);
         const netherZ = isNaN(z) ? '~' : Math.floor(z / 8);
         result.innerText = `${netherX} ${netherY} ${netherZ}`;
     } else {
         // Nether → Overworld
         const overX = isNaN(x) ? '~' : x * 8;
-        const overY = isNaN(y) ? '~' : Math.min(316, Math.max(-62, y));
+        const overY = isNaN(y) ? '~' : clamp(y, overYMin, overYMax);
         const overZ = isNaN(z) ? '~' : z * 8;
         result.innerText = `${overX} ${overY} ${overZ}`;
     }
