@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Minecraft Calculator</title>
+    <title>MC Calculator</title>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-<div class="mc-calculator">
+<div class="main-page">
     <h1>Minecraft Calculator</h1>
     <p>The best tool for various calculations needed when traversing the lands of Minecraft.</p>
     <div>
         <h2>Nether Portals</h2>
         <p>Convert dimension coordinates to find the best placement to link portals.</p>
-        <div class="convert-coordinates">
-            <div class="coordinates">
+        <div class="convert-boxes">
+            <div class="coords-box">
                 <h3 id="input-dimension">Overworld Coords</h3>
                 <label for="x-input">X: <input id="x-input" required type="number"></label>
                 <label for="y-input">Y: <input id="y-input" required type="number"></label>
@@ -22,13 +22,14 @@
                 <button id="reverse-button">Switch to Nether → Overworld</button>
                 <button id="clear-button">Clear</button>
             </div>
-            <div class="coordinates">
+            <div class="coords-box">
                 <h3 id="output-dimension">Nether Coords</h3>
                 <p id="result">~ ~ ~</p>
                 <button id="copy-button">Copy</button>
             </div>
         </div>
-
+    </div>
+    <div>
         <h2>Optimal Path</h2>
         <p>Calculate the displacement, distance, and optimal building path with directions, from your main portal to
             another.</p>
