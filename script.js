@@ -8,9 +8,11 @@ const yInput = document.getElementById('y-input');
 const zInput = document.getElementById('z-input');
 const result = document.getElementById('result');
 
-const reverseButton = document.getElementById('reverse-button');
 const inputDimensionName = document.getElementById('input-dimension');
 const outputDimensionName = document.getElementById('output-dimension');
+const reverseButton = document.getElementById('reverse-button');
+const clearButton = document.getElementById('clear-button');
+const copyButton = document.getElementById('copy-button');
 
 let isReversed = false;
 
@@ -28,6 +30,23 @@ reverseButton.addEventListener('click', () => {
 
     updateYInputRange();
     updateResult();
+});
+
+clearButton.addEventListener('click', () => {
+    xInput.value = '';
+    yInput.value = '';
+    zInput.value = '';
+    updateResult();
+});
+
+copyButton.addEventListener('click', () => {
+    const textToCopy = result.innerText;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        alert('Coordinates copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+        alert('Failed to copy coordinates.');
+    });
 });
 
 updateYInputRange();
