@@ -1,3 +1,6 @@
+import {netherToOverworld, overworldToNether} from "./conversion.js";
+import {displacement, distance, optimalPath} from "./path.js";
+
 const overYMin = -62;
 const overYMax = 316;
 const netherYMin = 2;
@@ -18,7 +21,7 @@ const copyButton = document.getElementById('copy-button');
 let isReversed = false;
 
 [xInput, yInput, zInput].forEach(input => {
-    input.addEventListener('input', updateResult);
+    input.addEventListener('input', updateConversion);
 });
 
 reverseButton.addEventListener('click', () => {
@@ -30,14 +33,14 @@ reverseButton.addEventListener('click', () => {
     outputDimensionName.innerText = isReversed ? '(Overworld)' : '(Nether)';
 
     updateYInputRange();
-    updateResult();
+    updateConversion();
 });
 
 clearButton.addEventListener('click', () => {
     xInput.value = '';
     yInput.value = '';
     zInput.value = '';
-    updateResult();
+    updateConversion();
 });
 
 copyButton.addEventListener('click', () => {
@@ -53,35 +56,22 @@ copyButton.addEventListener('click', () => {
 updateYInputRange();
 
 function updateYInputRange() {
-    if (!isReversed) {
-        yInput.min = overYMin;
-        yInput.max = overYMax;
-    } else {
-        yInput.min = netherYMin;
-        yInput.max = netherYMax;
-    }
+    yInput.min = isReversed ? netherYMin : overYMin;
+    yInput.max = isReversed ? netherYMax : overYMax;
 }
 
-function clamp(value, min, max) {
-    return Math.min(max, Math.max(min, value));
-}
+function updateConversion() {
+    let x = parseInt(xInput.value);
+    let y = parseInt(yInput.value);
+    let z = parseInt(zInput.value);
 
-function updateResult() {
-    const x = parseInt(xInput.value);
-    const y = parseInt(yInput.value);
-    const z = parseInt(zInput.value);
+    const coords = isReversed
+        ? netherToOverworld(x, y, z)
+        : overworldToNether(x, y, z);
 
-    if (!isReversed) {
-        // Overworld → Nether
-        const netherX = isNaN(x) ? '~' : Math.floor(x / 8);
-        const netherY = isNaN(y) ? '~' : clamp(y, netherYMin, netherYMax);
-        const netherZ = isNaN(z) ? '~' : Math.floor(z / 8);
-        result.innerText = `${netherX} ${netherY} ${netherZ}`;
-    } else {
-        // Nether → Overworld
-        const overX = isNaN(x) ? '~' : x * 8;
-        const overY = isNaN(y) ? '~' : clamp(y, overYMin, overYMax);
-        const overZ = isNaN(z) ? '~' : z * 8;
-        result.innerText = `${overX} ${overY} ${overZ}`;
-    }
+    x = isNaN(coords.x) ? '~' : coords.x;
+    y = isNaN(coords.y) ? '~' : coords.y;
+    z = isNaN(coords.z) ? '~' : coords.z;
+
+    result.innerText = `${x} ${y} ${z}`;
 }

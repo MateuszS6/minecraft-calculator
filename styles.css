@@ -37,7 +37,7 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 0 5rem 5rem;
 }
 
 .box-row {
