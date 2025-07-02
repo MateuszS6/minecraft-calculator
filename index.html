@@ -13,17 +13,20 @@
     <div>
         <h2>Nether Portals</h2>
         <p>Convert dimension coordinates to find the best placement to link portals.</p>
-        <div class="convert-boxes">
+        <h4>Mode: <span id="mode-text">Overworld to Nether</span></h4>
+        <button id="reverse-button">Reverse</button>
+        <div class="box-row">
             <div class="coords-box">
-                <h3 id="input-dimension">Overworld Coords</h3>
+                <h4>Input</h4>
+                <p id="input-dimension">(Overworld)</p>
                 <label for="x-input">X: <input id="x-input" required type="number"></label>
                 <label for="y-input">Y: <input id="y-input" required type="number"></label>
                 <label for="z-input">Z: <input id="z-input" required type="number"></label>
-                <button id="reverse-button">Switch to Nether → Overworld</button>
                 <button id="clear-button">Clear</button>
             </div>
             <div class="coords-box">
-                <h3 id="output-dimension">Nether Coords</h3>
+                <h4>Result</h4>
+                <p id="output-dimension">(Nether)</p>
                 <p id="result">~ ~ ~</p>
                 <button id="copy-button">Copy</button>
             </div>
@@ -33,6 +36,27 @@
         <h2>Optimal Path</h2>
         <p>Calculate the displacement, distance, and optimal building path with directions, from your main portal to
             another.</p>
+        <div class="box-row">
+            <div class="coords-box">
+                <h4>Portal 1</h4>
+                <label for="x1-input">X: <input id="x1-input" required type="number"></label>
+                <label for="y1-input">Y: <input id="y1-input" required type="number"></label>
+                <label for="z1-input">Z: <input id="z1-input" required type="number"></label>
+                <button>Clear</button>
+            </div>
+            <div class="coords-box">
+                <h4>Result</h4>
+                <p id="path-result">Displacement: ~<span id="displacement"></span> blocks<br>
+                    Distance: ~<span id="distance"></span> blocks<br>
+            </div>
+            <div class="coords-box">
+                <h4>Portal 2</h4>
+                <label for="x2-input">X: <input id="x2-input" required type="number"></label>
+                <label for="y2-input">Y: <input id="y2-input" required type="number"></label>
+                <label for="z2-input">Z: <input id="z2-input" required type="number"></label>
+                <button>Clear</button>
+            </div>
+        </div>
     </div>
 </div>
 <footer>

@@ -8,6 +8,7 @@ const yInput = document.getElementById('y-input');
 const zInput = document.getElementById('z-input');
 const result = document.getElementById('result');
 
+const modeText = document.getElementById('mode-text');
 const inputDimensionName = document.getElementById('input-dimension');
 const outputDimensionName = document.getElementById('output-dimension');
 const reverseButton = document.getElementById('reverse-button');
@@ -24,9 +25,9 @@ reverseButton.addEventListener('click', () => {
     isReversed = !isReversed
 
     // Update UI
-    inputDimensionName.innerText = isReversed ? 'Nether Coords' : 'Overworld Coords';
-    outputDimensionName.innerText = isReversed ? 'Overworld Coords' : 'Nether Coords';
-    reverseButton.innerText = isReversed ? 'Switch to Overworld → Nether' : 'Switch to Nether → Overworld';
+    modeText.innerText = isReversed ? 'Nether to Overworld' : 'Overworld to Nether';
+    inputDimensionName.innerText = isReversed ? '(Nether)' : '(Overworld)';
+    outputDimensionName.innerText = isReversed ? '(Overworld)' : '(Nether)';
 
     updateYInputRange();
     updateResult();
