@@ -1,5 +1,5 @@
 import {netherToOverworld, overworldToNether} from "./conversion.js";
-import {displacement, distance, optimalPath} from "./path.js";
+import {displacement, formatDisplacement, distance, optimalPath} from "./path.js";
 
 const overYMin = -62;
 const overYMax = 316;
@@ -14,6 +14,7 @@ const conversion = document.getElementById('conversion');
 const modeText = document.getElementById('mode-text');
 const inputDimensionName = document.getElementById('input-dimension');
 const outputDimensionName = document.getElementById('output-dimension');
+
 const reverseButton = document.getElementById('reverse-button');
 const clearButton = document.getElementById('clear-button');
 const copyButton = document.getElementById('copy-button');
@@ -25,8 +26,12 @@ const x2Input = document.getElementById('x2-input');
 const y2Input = document.getElementById('y2-input');
 const z2Input = document.getElementById('z2-input');
 
+const displacementResult = document.getElementById('displacement-result');
 const followResult = document.getElementById('follow-result');
 const distanceResult = document.getElementById('distance-result');
+
+const clear1Button = document.getElementById('clear-1-button');
+const clear2Button = document.getElementById('clear-2-button');
 
 let isReversed = false;
 
@@ -90,6 +95,20 @@ function updateConversion() {
     input.addEventListener('input', updatePathResult);
 });
 
+clear1Button.addEventListener('click', () => {
+    x1Input.value = '';
+    y1Input.value = '';
+    z1Input.value = '';
+    updatePathResult();
+});
+
+clear2Button.addEventListener('click', () => {
+    x2Input.value = '';
+    y2Input.value = '';
+    z2Input.value = '';
+    updatePathResult();
+});
+
 function updatePathResult() {
     const x1 = parseInt(x1Input.value);
     const y1 = parseInt(y1Input.value);
@@ -99,18 +118,17 @@ function updatePathResult() {
     const z2 = parseInt(z2Input.value);
 
     if (isNaN(x1) || isNaN(y1) || isNaN(z1) || isNaN(x2) || isNaN(y2) || isNaN(z2)) {
-        followResult.innerText = 'Invalid coordinates';
-        distanceResult.innerText = '';
+        displacementResult.innerText = '~ ~ ~';
+        followResult.innerText = '~ ~ ~';
+        distanceResult.innerText = '~';
         return;
     }
 
     const origin = {x1, y1, z1};
-    console.log('Origin:', origin);
     const target = {x2, y2, z2};
-    console.log('Target:', target);
     const d = displacement(origin, target);
-    console.log('Displacement:', d);
 
+    displacementResult.innerText = formatDisplacement(d);
     followResult.innerText = optimalPath(d);
     distanceResult.innerText = distance(d).toFixed(2);
 }
