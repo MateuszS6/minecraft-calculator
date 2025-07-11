@@ -12,7 +12,7 @@
     <p>The best tool for various calculations needed when traversing the lands of Minecraft.</p>
     <div>
         <h2>Nether Portals</h2>
-        <p>Convert dimension coordinates to find the best placement to link portals.</p>
+        <p class="tip">Convert dimension coordinates to find the best placement to link portals.</p>
         <h4>Mode: <span id="mode-text">Overworld to Nether</span></h4>
         <button id="reverse-button">Reverse</button>
         <div class="box-row">
@@ -27,14 +27,15 @@
             <div class="coords-box">
                 <h4>Result</h4>
                 <p id="output-dimension">(Nether)</p>
-                <p id="conversion">~ ~ ~</p>
+                <p class="result" id="conversion">~ ~ ~</p>
                 <button id="copy-button">Copy</button>
             </div>
         </div>
     </div>
     <div>
         <h2>Optimal Path</h2>
-        <p>Calculate the displacement, distance, and optimal building path with directions, from your main portal to
+        <p class="tip">Calculate the displacement, distance, and optimal building path with directions, from your main
+            portal to
             another.</p>
         <div class="box-row">
             <div class="coords-box">
@@ -46,9 +47,9 @@
             </div>
             <div class="coords-box">
                 <h4>Result</h4>
-                <p>Displacement: <span id="displacement-result">~ ~ ~</span><br>
-                    Follow: <span id="follow-result">~ ~ ~</span><br>
-                    Distance: <span id="distance-result">~</span> blocks<br>
+                <p class="result">Disp: <span id="displacement-result">~ ~ ~</span><br>
+                    Path: <span id="follow-result">~ ~ ~</span><br>
+                    Dist: <span id="distance-result">~</span> blocks<br>
                 </p>
             </div>
             <div class="coords-box">
