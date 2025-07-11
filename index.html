@@ -10,11 +10,9 @@
 <div class="main-page">
     <h1>Minecraft Calculator</h1>
     <p>The best tool for various calculations needed when traversing the lands of Minecraft.</p>
-    <div>
+    <div class="section">
         <h2>Nether Portals</h2>
         <p class="tip">Convert dimension coordinates to find the best placement to link portals.</p>
-        <h4>Mode: <span id="mode-text">Overworld to Nether</span></h4>
-        <button id="reverse-button">Reverse</button>
         <div class="box-row">
             <div class="coords-box">
                 <h4>Input</h4>
@@ -31,8 +29,12 @@
                 <button id="copy-button">Copy</button>
             </div>
         </div>
+        <div class="mode-toggle">
+            <h4>Mode: <span id="mode-text">Overworld to Nether</span></h4>
+            <button id="reverse-button">Reverse</button>
+        </div>
     </div>
-    <div>
+    <div class="section">
         <h2>Optimal Path</h2>
         <p class="tip">Calculate the displacement, distance, and optimal building path with directions, from your main
             portal to
