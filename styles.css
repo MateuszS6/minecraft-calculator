@@ -144,14 +144,14 @@ footer a:hover {
 }
 
 .result {
-    font-family: Outfit, sans-serif;
+    font-family: Consolas, sans-serif;
     font-size: 1.25rem;
     margin-top: 1rem;
     padding: 1rem;
     text-align: center;
-    border: 2px solid var(--secondary-color);
-    background-color: var(--box-bg-color);
-    box-shadow: 2px 2px 0 #000;
+    /*border: 2px solid var(--secondary-color);*/
+    /*background-color: var(--box-bg-color);*/
+    /*box-shadow: 2px 2px 0 #000;*/
     color: var(--green-1);
 }
 
