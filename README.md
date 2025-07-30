@@ -2,4 +2,4 @@
  
 Almost finished...
 
-[Go to the website!](https://MateuszS6.github.io/minecraft-calculator/)
+<a href="https://MateuszS6.github.io/minecraft-calculator/" target="_blank" rel="noopener noreferrer">Visit Site!</a>
