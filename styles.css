@@ -22,14 +22,18 @@
     --box-bg-color: #1e1e1e;
     --text-color: #f0f0f0;
     --border-color: #444;
+    --cursor-default: url('./cursors/diamond-sword-cursor.png');
+    --cursor-button: url('./cursors/diamond-sword-pointer.png');
+    /*--cursor-text: url('./cursors/diamond-sword-text.png'), text;*/
 }
 
-body {
+html, body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
     font-family: Minecraft, sans-serif;
     font-size: 16px;
+    cursor: var(--cursor-default), auto;
 }
 
 h1, h2, h3 {
@@ -62,6 +66,10 @@ button:hover {
     background-color: var(--green-2);
     border-color: var(--green-1);
     color: black;
+}
+
+button, a, input[type="button"], input[type="submit"] {
+    cursor: var(--cursor-button), pointer;
 }
 
 .tip {
