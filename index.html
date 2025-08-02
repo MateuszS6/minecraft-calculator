@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>MC Calculator</title>
+    <title>MC Calc</title>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
@@ -12,7 +12,18 @@
     <p>The best tool for various calculations needed when traversing the lands of Minecraft.</p>
     <div class="section">
         <h2>Nether Portals</h2>
-        <p class="tip">Convert dimension coordinates to find the best placement to link portals.</p>
+        <p class="tip">
+            Convert dimension coordinates to find the best placement to link portals.<br>
+            Things to note:
+        </p>
+        <ul class="tip">
+            <li>Coordinates in the Nether are 1/8th of the Overworld coordinates.</li>
+            <li>Y coordinate is the same in both dimensions (clamped to world limits).</li>
+            <li>Portals can link in both directions, so you can use this tool to convert Nether to Overworld as well.
+            </li>
+        </ul>
+        <p class="tip">Simply enter the coordinates in the Overworld or Nether, and the tool will
+            calculate the corresponding coordinates in the other dimension!</p>
         <div class="box-row">
             <div class="coords-box">
                 <p id="input-dimension">Overworld</p>
