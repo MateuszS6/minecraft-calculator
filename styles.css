@@ -72,12 +72,18 @@ button, a {
     cursor: var(--cursor-select), pointer;
 }
 
-input:hover {
-    cursor: var(--cursor-select), pointer;
+input {
+    cursor: var(--cursor-default), auto;
 }
 
-input:focus {
-    cursor: var(--cursor-default), auto;
+.result {
+    cursor: var(--cursor-select), auto;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .tip {
