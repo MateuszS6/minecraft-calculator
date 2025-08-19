@@ -23,7 +23,7 @@
     --text-color: #f0f0f0;
     --border-color: #444;
     --cursor-default: url('./cursors/diamond-sword-cursor.png');
-    --cursor-button: url('./cursors/diamond-sword-pointer.png');
+    --cursor-select: url('./cursors/diamond-sword-pointer.png');
     /*--cursor-text: url('./cursors/diamond-sword-text.png'), text;*/
 }
 
@@ -68,8 +68,16 @@ button:hover {
     color: black;
 }
 
-button, a, input[type="button"], input[type="submit"] {
-    cursor: var(--cursor-button), pointer;
+button, a {
+    cursor: var(--cursor-select), pointer;
+}
+
+input:hover {
+    cursor: var(--cursor-select), pointer;
+}
+
+input:focus {
+    cursor: var(--cursor-default), auto;
 }
 
 .tip {
