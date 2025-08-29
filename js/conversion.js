@@ -7,7 +7,7 @@ const modeText = document.getElementById('mode-text');
 const inputDimensionName = document.getElementById('input-dimension');
 const outputDimensionName = document.getElementById('output-dimension');
 
-const reverseButton = document.getElementById('reverse-button');
+const switchButton = document.getElementById('switch-button');
 const clearButton = document.getElementById('clear-button');
 const copyButton = document.getElementById('copy-button');
 
@@ -23,7 +23,7 @@ export function initConversionModule() {
         input.addEventListener('input', updateConversion);
     });
 
-    reverseButton.addEventListener('click', () => {
+    switchButton.addEventListener('click', () => {
         isReversed = !isReversed
 
         // Update UI

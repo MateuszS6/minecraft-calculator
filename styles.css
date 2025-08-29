@@ -20,20 +20,42 @@
     --bg-color: #2b2b2b;
     --bg-color-alt: #3c3c3c;
     --box-bg-color: #1e1e1e;
-    --text-color: #f0f0f0;
+    --text-color-main: #f0f0f0;
     --border-color: #444;
     --cursor-default: url('./cursors/diamond-sword-cursor.png');
     --cursor-select: url('./cursors/diamond-sword-pointer.png');
     /*--cursor-text: url('./cursors/diamond-sword-text.png'), text;*/
 }
 
-html, body {
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
     background-color: var(--bg-color);
-    color: var(--text-color);
+    color: var(--text-color-main);
     line-height: 1.6;
     font-family: Minecraft, sans-serif;
     font-size: 16px;
     cursor: var(--cursor-default), auto;
+}
+
+header {
+    padding: 25px;
+    text-align: center;
+}
+
+.navbar {
+    height: 70px;
+    background-color: var(--bg-color-alt);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5rem 5rem;
 }
 
 h1, h2, h3 {
@@ -41,25 +63,34 @@ h1, h2, h3 {
     font-family: "Minecraft Ten", sans-serif;
 }
 
-input, button {
-    font-family: Minecraft, sans-serif;
-    font-size: 1rem;
-    background-color: var(--bg-color-alt);
-    color: white;
-    border: 2px solid var(--secondary-color);
-    border-radius: 0;
-    outline: none;
+input {
+    font-size: 1.2rem;
+    cursor: var(--cursor-default), auto;
 }
 
 input:focus {
     border-color: var(--green-1);
 }
 
+input:hover:not(:focus) {
+    cursor: var(--cursor-select), pointer;
+}
+
+input, button {
+    font-family: Minecraft, sans-serif;
+    background-color: var(--bg-color-alt);
+    color: white;
+    border: 2px solid var(--secondary-color);
+    border-radius: 0;
+    outline: none;
+    padding: 0.5rem 1rem;
+}
+
 button {
+    font-size: 1rem;
     background-color: var(--secondary-color);
     color: white;
     transition: background-color 0.2s, border 0.2s;
-    padding: 0.5rem 1rem;
 }
 
 button:hover {
@@ -70,10 +101,6 @@ button:hover {
 
 button, a {
     cursor: var(--cursor-select), pointer;
-}
-
-input {
-    cursor: var(--cursor-default), auto;
 }
 
 .result {
@@ -112,13 +139,6 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-.main-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 5rem 5rem;
 }
 
 .box-row {
