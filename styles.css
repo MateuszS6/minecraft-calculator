@@ -22,13 +22,13 @@
     --box-bg-color: #1e1e1e;
     --text-color-main: #f0f0f0;
     --border-color: #444;
-    --cursor-default: url('./cursors/diamond-sword-cursor.png');
-    --cursor-select: url('./cursors/diamond-sword-pointer.png');
-    /*--cursor-text: url('./cursors/diamond-sword-text.png'), text;*/
+    --cursor-default: url('./images/cursor/diamond-sword-cursor.png');
+    --cursor-select: url('./images/cursor/diamond-sword-pointer.png');
 }
 
 * {
     box-sizing: border-box;
+    cursor: none;
 }
 
 body {
@@ -38,7 +38,15 @@ body {
     line-height: 1.6;
     font-family: Minecraft, sans-serif;
     font-size: 16px;
-    cursor: var(--cursor-default), auto;
+}
+
+#cursor {
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    background: var(--cursor-default) no-repeat center/contain;
+    pointer-events: none;
+    transform-origin: center;
 }
 
 header {
@@ -63,9 +71,19 @@ h1, h2, h3 {
     font-family: "Minecraft Ten", sans-serif;
 }
 
+.tip {
+    font-size: 0.9rem;
+    color: #a8a8a8;
+    margin-top: 1rem;
+}
+
+label {
+    /*cursor: var(--cursor-default), auto*/
+}
+
 input {
     font-size: 1.2rem;
-    cursor: var(--cursor-default), auto;
+    /*cursor: var(--cursor-default), auto;*/
 }
 
 input:focus {
@@ -73,7 +91,13 @@ input:focus {
 }
 
 input:hover:not(:focus) {
-    cursor: var(--cursor-select), pointer;
+    /*cursor: var(--cursor-select), pointer;*/
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input, button {
@@ -100,23 +124,11 @@ button:hover {
 }
 
 button, a {
-    cursor: var(--cursor-select), pointer;
+    /*cursor: var(--cursor-select), pointer;*/
 }
 
 .result {
-    cursor: var(--cursor-select), auto;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.tip {
-    font-size: 0.9rem;
-    color: #a8a8a8;
-    margin-top: 1rem;
+    /*cursor: var(--cursor-select), auto;*/
 }
 
 footer {
