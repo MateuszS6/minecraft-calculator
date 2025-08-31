@@ -22,8 +22,8 @@
     --box-bg-color: #1e1e1e;
     --text-color-main: #f0f0f0;
     --border-color: #444;
-    --cursor-default: url('./images/cursor/diamond-sword-cursor.png');
-    --cursor-select: url('./images/cursor/diamond-sword-pointer.png');
+    /*--cursor-default: url('./images/cursor/diamond-sword-cursor.png');*/
+    /*--cursor-select: url('./images/cursor/diamond-sword-pointer.png');*/
 }
 
 * {
@@ -44,9 +44,11 @@ body {
     position: fixed;
     width: 64px;
     height: 64px;
-    background: var(--cursor-default) no-repeat center/contain;
+    background: url('./images/cursor/diamond-sword-cursor.png') no-repeat center/contain;
     pointer-events: none;
+    z-index: 9999;
     transform-origin: center;
+    transition: transform 0.1s linear;
 }
 
 header {
@@ -77,21 +79,12 @@ h1, h2, h3 {
     margin-top: 1rem;
 }
 
-label {
-    /*cursor: var(--cursor-default), auto*/
-}
-
 input {
     font-size: 1.2rem;
-    /*cursor: var(--cursor-default), auto;*/
 }
 
 input:focus {
     border-color: var(--green-1);
-}
-
-input:hover:not(:focus) {
-    /*cursor: var(--cursor-select), pointer;*/
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -121,14 +114,6 @@ button:hover {
     background-color: var(--green-2);
     border-color: var(--green-1);
     color: black;
-}
-
-button, a {
-    /*cursor: var(--cursor-select), pointer;*/
-}
-
-.result {
-    /*cursor: var(--cursor-select), auto;*/
 }
 
 footer {

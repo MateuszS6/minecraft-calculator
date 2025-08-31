@@ -5,40 +5,32 @@ initConversionModule();
 initPathModule();
 
 /* CURSOR */
-
 const cursor = document.getElementById("cursor");
-const cursorSize = 64;
+const swordNormal = "./images/cursor/diamond-sword-cursor.png";
+const swordStrong = "./images/cursor/diamond-sword-pointer.png";
 
-document.addEventListener("mousemove", (e) => {
-    let x = e.clientX;
-    let y = e.clientY;
+let currentImg = swordNormal;
 
-    let transform = "rotate(0deg)";
-    let offsetX = 0;
-    let offsetY = 0;
+document.addEventListener("mousemove", e => {
+    const {clientX: x, clientY: y} = e;
 
-    // Right
-    if (x > window.innerWidth - cursorSize) {
-        transform = "scaleX(-1)";
-        offsetX = cursorSize;
+    // Position
+    cursor.style.left = x + "px";
+    cursor.style.top = y + "px";
+
+    const buffer = 64;
+    const nearRight = x > window.innerWidth - buffer;
+    const nearBottom = y > window.innerHeight - buffer;
+
+    if (nearRight && nearBottom) {
+        cursor.style.transform = "translate(-100%, -100%) scale(-1, -1)";
+    } else if (nearRight) {
+        cursor.style.transform = "translate(-100%, 0) scaleX(-1)";
+    } else if (nearBottom) {
+        cursor.style.transform = "translate(0, -100%) scaleY(-1)";
+    } else {
+        cursor.style.transform = "translate(0, 0) rotate(0)";
     }
-
-    // Bottom
-    if (y > window.innerHeight - cursorSize) {
-        transform = "scaleY(-1)"
-        offsetY = cursorSize;
-    }
-
-    // Bottom right
-    if (x > window.innerWidth - cursorSize && y > window.innerHeight - cursorSize) {
-        transform = "scale(-1, -1)"
-        offsetX = cursorSize;
-        offsetY = cursorSize;
-    }
-
-    cursor.style.transform = transform;
-    cursor.style.left = (x - offsetX) + "px";
-    cursor.style.top = (y - offsetY) + "px";
 });
 
 document.addEventListener("mouseleave", () => {
@@ -47,4 +39,16 @@ document.addEventListener("mouseleave", () => {
 
 document.addEventListener("mouseenter", () => {
     cursor.style.opacity = "1";
+});
+
+function setCursorImage(img) {
+    if (currentImg !== img) {
+        cursor.style.background = `url(${img}) no-repeat center/contain`;
+        currentImg = img;
+    }
+}
+
+document.querySelectorAll("a, button, input, textarea, select").forEach(el => {
+    el.addEventListener("mouseenter", () => setCursorImage(swordStrong));
+    el.addEventListener("mouseleave", () => setCursorImage(swordNormal));
 });
